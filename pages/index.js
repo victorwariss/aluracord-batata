@@ -36,7 +36,12 @@ function Titulo(props) {
 
 export default function PaginaInicial() {
     //const username = 'victorwariss';
-    const [username, setUsername]= React.useState('victorwariss')
+    const [username, setUsername] = React.useState('victorwariss')
+    // const [location, setLocation] = React.useEffect(()=>
+    //     fetch(`https://api.github.com/users/${username}`)
+    //     .then(response=>response.json())
+    //     .then(data=>(setLocation(data.location)))
+    // ),[username];
     const roteamento = useRouter();
 
     return (
@@ -137,9 +142,10 @@ export default function PaginaInicial() {
                             styleSheet={{
                                 borderRadius: '50%',
                                 marginBottom: '16px',
+                                display: {}
                             }}
-                            src={`https://github.com/${username}.png`}
-                        />
+                            src={ username.length > 3 ? `https://github.com/${username}.png` : `https://i.imgur.com/49AZ4gd.png`}
+                            ></Image>
                         <Text
                             variant="body4"
                             styleSheet={{
