@@ -1,5 +1,5 @@
 import { Box, Button, Text, TextField, Image } from '@skynexui/components';
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useRouter } from 'next/router';
 import appConfig from '../config.json'
 
@@ -36,12 +36,14 @@ function Titulo(props) {
 
 export default function PaginaInicial() {
     //const username = 'victorwariss';
-    const [username, setUsername] = React.useState('victorwariss')
-    // const [location, setLocation] = React.useEffect(()=>
+    // const [location, setLocation] = useEffect(()=>
     //     fetch(`https://api.github.com/users/${username}`)
     //     .then(response=>response.json())
     //     .then(data=>(setLocation(data.location)))
     // ),[username];
+
+    const [username, setUsername] = useState('victorwariss')
+
     const roteamento = useRouter();
 
     return (
@@ -157,6 +159,17 @@ export default function PaginaInicial() {
                         >
                             {username}
                         </Text>
+                        {/* <Text
+                            variant="body4"
+                            styleSheet={{
+                                color: appConfig.theme.colors.neutrals[200],
+                                backgroundColor: appConfig.theme.colors.neutrals[900],
+                                padding: '3px 10px',
+                                borderRadius: '1000px'
+                            }}
+                        >
+                            {Promise(location.public_repos)}
+                        </Text> */}
                     </Box>
                     {/* Photo Area */}
                 </Box>

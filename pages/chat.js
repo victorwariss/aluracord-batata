@@ -15,6 +15,13 @@ export default function ChatPage() {
     - [X]Campo criado
     - [+/-]usar o onChange us ao UseState (ter if caso seja enter pra limpar a variavel)
     - [] lista de mensagens
+    
+    -----------------------------------------------------------------------------------------
+    // logica botão de deletar msg
+    - clica no botão
+    - pega a msg e deletar da lista de msg
+
+    
     */
 
     function handleNovaMensagem(novaMensagem) {
@@ -106,6 +113,26 @@ export default function ChatPage() {
                                 backgroundColor: appConfig.theme.colors.neutrals[800],
                                 marginRight: '12px',
                                 color: appConfig.theme.colors.neutrals[200],
+                                minWidth: '160px',
+                            }}
+                        />
+                        <Button
+                            type='submit'
+                            label='Enviar'
+                            onClick={(event) =>{
+                                event.preventDefault();
+                                handleNovaMensagem(mensagem);
+                            }}
+                            styleSheet={{
+                                width: '7%',
+                                minWidth: '60px',
+                                borderRadius: '20px',
+                            }}
+                            buttonColors={{
+                                contrastColor: appConfig.theme.colors.neutrals["000"],
+                                mainColor: appConfig.theme.colors.primary[500],
+                                mainColorLight: appConfig.theme.colors.primary[400],
+                                mainColorStrong: appConfig.theme.colors.primary[600],
                             }}
                         />
                     </Box>
@@ -164,6 +191,8 @@ function MessageList(props) {
                         <Box
                             styleSheet={{
                                 marginBottom: '8px',
+                                display: 'flex',
+                                justifyContent: 'space-betwen',
                             }}
                         >
                             <Image
@@ -184,11 +213,51 @@ function MessageList(props) {
                                     fontSize: '10px',
                                     marginLeft: '8px',
                                     color: appConfig.theme.colors.neutrals[300],
+                                    flex: '5',
                                 }}
                                 tag="span"
                             >
                                 {(new Date().toLocaleDateString())}
                             </Text>
+                            
+                            {/* <Button
+                            type='button'
+                            label='x'
+                            maxHeight
+                            onClick={(props)=>{
+                                const removedorId = props.mensagem.id
+                                const NovaLista = props.listaDeMensagens.filter(props.mensagem.id !== removedorId)
+                                setListaDeMensagens(NovaLista)
+                            }}
+                            styleSheet={{
+                                width: '3px',
+                                height: '3px',
+                                maxWidth: '3px',
+                                borderRadius: '20px',
+                                position: 'relative',
+                                marginRight:'0',
+                                // flex: '1',
+                            }}
+                            buttonColors={{
+                                contrastColor: appConfig.theme.colors.neutrals["000"],
+                                mainColor: appConfig.theme.colors.primary[500],
+                                mainColorLight: appConfig.theme.colors.primary[400],
+                                mainColorStrong: appConfig.theme.colors.primary[600],
+                            }}
+                            /> */}
+                            <Image
+                                styleSheet={{
+                                    width: '10px',
+                                    height: '10px',
+                                    borderRadius: '50%',
+                                }}
+                                // onClick={(props)=>{
+                                //     const removedorId = props.mensagem.id
+                                //     const NovaLista = props.listaDeMensagens.filter(props.mensagem.id !== removedorId)
+                                //     setListaDeMensagens(NovaLista)
+                                // }}
+                                src={`https://i.imgur.com/bVCudQQ.png`}
+                            />
                         </Box>
                         {mensagem.texto}
                     </Text>
